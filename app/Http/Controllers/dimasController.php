@@ -11,7 +11,7 @@ class dimasController extends Controller
     function index(){
 
         $judul = "Selamat Datang";
-        $pengaduan = DB::table('pengaduan')->get();
+        $pengaduan = DB::table ('pengaduan')->get();
 
         return view('home', ['TextJudul' => $judul, 'pengaduan' => $pengaduan]);
 
@@ -59,8 +59,22 @@ class dimasController extends Controller
 }
 
     function update($id){
+        $id = (int) $id;        
+        
         $affected = DB::table('pengaduan')
               ->where('id_pengaduan', $id)
-              ->update(['isi_laporan' => "siti"]);
+              ->update(['isi_laporan' => request()->isi_laporan]);
+
+    return redirect('home');
+    }
+
+    function edit($id){
+        $pengaduan = DB::table('pengaduan')
+              ->where('id_pengaduan', $id)
+              ->first();
+
+              $pengaduan = (array) $pengaduan;
+            //   dd($pengaduan);
+        return view('update-pengaduan', ["data" => $pengaduan]);
     }
 }
