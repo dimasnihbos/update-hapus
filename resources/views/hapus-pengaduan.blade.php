@@ -8,8 +8,8 @@
   <title>Document</title>
 </head>
 <body>
-
-    <h1>Detail Pengaduan</h1>
+    
+<h1>{{ $TextJudul }}</h1>
 
 <table class="center" border="1">
   <tr>
@@ -21,6 +21,8 @@
     <th>status</th>
   </tr>
 
+
+@foreach($pengaduan as $pengaduan)
 <tr>
   <td>{{$pengaduan->id_pengaduan}}</td>
   <td>{{$pengaduan->tgl_pengaduan}}</td>
@@ -30,9 +32,11 @@
   <td>{{$pengaduan->status}}</td>
 </tr>
 <td>
-  <a href="">PRINT</a>
+  <a href="hapus-pengaduan/{{$pengaduan->id_pengaduan}}">Hapus</a>
+  <a href="detail-pengaduan/{{$pengaduan->id_pengaduan}}">Detail</a>
+  <a href="update-pengaduan/{{$pengaduan->id_pengaduan}}">Update</a>
 </td>
-
+@endforeach
 </table>
 </body>
 

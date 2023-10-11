@@ -32,8 +32,8 @@
   <td>{{$pengaduan->status}}</td>
 </tr>
 <td>
-  <a href="/hapus-pengaduan/{{$pengaduan->id_pengaduan}}">Hapus</a>
-  <a href="/detail-pengaduan/{{$pengaduan->id_pengaduan}}">Detail</a>
+  <a href="hapus-pengaduan/{{$pengaduan->id_pengaduan}}">Hapus</a>
+  <a href="detail-pengaduan/{{$pengaduan->id_pengaduan}}">Detail</a>
   <a href="update-pengaduan/{{$pengaduan->id_pengaduan}}">Update</a>
 </td>
 @endforeach

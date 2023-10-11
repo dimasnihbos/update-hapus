@@ -47,6 +47,8 @@ Route::put('/update/{id}', [dimasController::class, 'update'])->name('update');
 
 Route::get('/update-pengaduan/{id}', [dimasController::class, 'edit']);
 
+Route::get('/hapus-pengaduan/{id}', [dimasController::class, 'delete']);
+
 //Route::get('/isi', function () {
   //  return view('isi');
 //});

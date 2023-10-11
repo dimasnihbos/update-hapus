@@ -17,19 +17,16 @@ class dimasController extends Controller
 
     }
 
-    function hapus($id){
-      $pengaduan = DB :: table('pengaduan')->where('id_pengaduan', '=', $id)->delete();
-
-       return redirect()->back();
-    }
+    function delete($id){
+        $pengaduan = DB :: table('pengaduan')->where('id_pengaduan', '=', $id)->delete();
+  
+         return redirect()->back();
+      }
 
     function tampil_pengaduan(){
         return view('isi');
     }
 
-    function detail($id){
-        $pengaduan = DB :: table('pengaduan')->where('id_pengaduan', '=', $id)->first();
-    }
 
     function isi_pengaduan(request $request){
 
@@ -53,9 +50,9 @@ class dimasController extends Controller
 
    function detail_($id){
     $pengaduan = DB::table('pengaduan')
-            ->where('id_pengaduan')
+            ->where('id_pengaduan', '=',$id)
             ->first();
-    return view("detail-pengaduan", ["data" => $pengaduan]);
+    return view("detail-pengaduan", ["pengaduan" => $pengaduan]);
 }
 
     function update($id){
